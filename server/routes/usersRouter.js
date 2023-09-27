@@ -13,4 +13,13 @@ usersRouter.post('/signup', signupController.signup, (req, res) => {
     return res.status(200).json(res.locals.newUser)
 })
 
+usersRouter.post('/google/login', (req, res) => {
+
+})
+
+usersRouter.post('/google/signup', (req, res) => {
+
+})
+
+
 module.exports = usersRouter

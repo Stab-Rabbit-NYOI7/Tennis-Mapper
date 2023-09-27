@@ -1,4 +1,5 @@
-const User = require('../db/dbModels.js')
+const Models = require('../db/dbModels.js')
+const { User, GoogleUser } = Models;
 
 const loginController = {}
 
@@ -23,6 +24,10 @@ loginController.login = (req, res, next) => {
             console.error(`Login Error: ${err}`)
             next(err)
         })
+}
+
+loginController.googleLogin = (req, res, next) => {
+    console.log('Google Login Req.Body', req.body)
 }
 
 module.exports = loginController;

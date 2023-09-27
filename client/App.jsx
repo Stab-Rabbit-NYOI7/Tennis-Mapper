@@ -9,8 +9,8 @@ import { useSelector } from "react-redux";
 
 
 const App = () => {
-  // let isLoggedIn = true
-  const isLoggedIn = useSelector( state => state.isLoggedIn)
+  let isLoggedIn = true
+  // const isLoggedIn = useSelector( state => state.isLoggedIn)
   console.log('IS LOGGED IN', isLoggedIn)
 
   return (
