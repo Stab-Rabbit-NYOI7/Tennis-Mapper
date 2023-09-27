@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const key = process.env.REACT_APP_API_KEY;
 
-
 const mapsController = {}
 
 mapsController.getMap = (req, res, next) => {
@@ -21,7 +20,7 @@ mapsController.getMap = (req, res, next) => {
             return response.json();
         })
         .then((data) => {  
-            console.log('DATA', data)
+            // console.log('DATA', data)
             for (let i = 0; i < data['results'].length; i++) {
                 indObject = {
                     name: data['results'][i]['name'],
