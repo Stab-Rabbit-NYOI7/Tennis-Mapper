@@ -32,7 +32,7 @@ const Map = () => {
 
   return (
     <Grid item xs={12}>
-    <Paper id="map" style={{width: '100%', height:'50vh', marginTop: '10px', marginLeft: '10px'}} elevation={3}></Paper>
+      <Paper id="map" sx={{width: '100%', height:'50vh', marginTop: '10px', marginLeft: '10px'}} elevation={3}></Paper>
     </Grid>
   );
 }
