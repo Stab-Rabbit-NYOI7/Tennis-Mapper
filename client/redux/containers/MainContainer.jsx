@@ -8,7 +8,6 @@ import FavoritesContainer from './FavoritesContainer.jsx';
 const MainContainer = () => {
     return (
     <Grid container spacing={3} className="app-background">
-
         <DisplayContainer />
 
         <DrawerContainer />

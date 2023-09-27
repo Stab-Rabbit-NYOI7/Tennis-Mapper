@@ -50,14 +50,14 @@ const ResultsCard = (props) => {
                 >
                     Like
                 </Button>
-                <Button
+                {/* <Button
                     variant="outlined"
                     onClick={onHandleDislike}
                     sx={{ borderColor: '#CCFF00', color: '#CCFF00', '&:hover': { borderColor: 'black', color: 'yellow' } }}
                 // sx={{ borderColor: '#CCFF00', color: '#CCFF00', '&:hover': { borderColor: '#32936F', color: '#32936F' } }}
                 >
                     Dislike
-                </Button>
+                </Button> */}
             </div>
             <div id='results' style={{ textAlign: 'left' }}>
                 <Typography variant="body1" sx={{ color: '#DFFD91' }}>Address: {props.data.address}</Typography>
