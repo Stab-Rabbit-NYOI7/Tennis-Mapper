@@ -28,6 +28,7 @@ loginController.login = (req, res, next) => {
 
 loginController.googleLogin = (req, res, next) => {
     console.log('Google Login Req.Body', req.body)
+    next()
 }
 
 module.exports = loginController;
