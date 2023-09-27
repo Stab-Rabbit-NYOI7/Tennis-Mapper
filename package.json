@@ -39,6 +39,7 @@
         "@emotion/styled": "^11.11.0",
         "@fontsource/roboto": "^5.0.8",
         "@googlemaps/js-api-loader": "^1.16.2",
+        "@material/textfield": "^14.0.0",
         "@mui/icons-material": "^5.14.9",
         "@mui/material": "^5.14.10",
         "@reduxjs/toolkit": "^1.9.5",
