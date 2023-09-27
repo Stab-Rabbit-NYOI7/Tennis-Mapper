@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react"; 
 import { Avatar, TextField, Typography, Button, Grid, Paper, Link, Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import theme from './theme.js'
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import Google from './google.jsx'
+
 
 const LogIn = () => {
     
+    
     return (
-    <ThemeProvider theme={theme}>
         <Grid container component='main' sx={{ height: '100vh'}}>
             <Grid item xs={false} sm={4} md={7}
                 sx={{
@@ -23,12 +25,15 @@ const LogIn = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '15px'
+                    gap: '20px'
                    }}>
                     
                     <Typography variant='h2' align='center' sx={{my: 2, color: '#254441'}}> Welcome to Tennis Finder!</Typography>
                     <Button variant='contained'>Sign in with username</Button>
-                    <Button variant='outlined'>Sign in with Google</Button>
+                    {/* <Button variant='outlined'>Sign in with Google</Button> */}
+                    <GoogleOAuthProvider clientId={process.env.clientId}>
+                        <Google />
+                    </GoogleOAuthProvider>
                     <Grid container gap={3} sx={{my: 2, justifyContent: 'center'}}>
                         <Link href="#" variant="body2">
                             {"Forgot password?"}
@@ -41,7 +46,6 @@ const LogIn = () => {
             </Grid >
     
         </Grid>
-    </ThemeProvider>
     )
 }
 
