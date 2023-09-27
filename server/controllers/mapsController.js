@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const key = process.env.REACT_APP_API_KEY;
 
-
 const mapsController = {}
 
 mapsController.getMap = (req, res, next) => {
