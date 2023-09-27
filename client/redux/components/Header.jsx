@@ -1,25 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import { Paper, Grid } from '@mui/material';
-import { styled, createTheme, ThemeProvider } from '@mui/system';
-
-
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#fff',
-    },
-  },
-});
-
-const MyThemeComponent = styled('div')(({ theme }) => ({
-  // ...theme.typography.h4,
-  color: theme.palette.primary.main,
-  marginBottom: 2,
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-  textAlign: 'center',
-}));
 
 const Header = () => {
   return (
@@ -34,13 +15,17 @@ const Header = () => {
           marginTop: '10px',
           marginLeft: '10px'
         }}>
-        <ThemeProvider theme={theme}>
-          <MyThemeComponent>
-            {/* <Typography variant='h4'> */}
-               🎾 Easy Court
-            {/* </Typography> */}
-          </MyThemeComponent>
-        </ThemeProvider>
+          <Typography 
+              variant="h4" 
+              component="div" 
+              sx={{ 
+                color: 'var(--off-yellow)',
+                mb: 2, 
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center' }}
+          >
+              🎾 Easy Court
+          </Typography>
         </Paper>
     </Grid>
   );
