@@ -36,6 +36,7 @@ const searchForm = (props) => {
                 dispatch(setMap({ center: mapPosition, zoom: 14 }));
 
                 // Map each response item and add markers
+                //testing
                 response.forEach((el) => {
                     let position = { lat: el.location.lat, lng: el.location.lng }
                     const marker = new google.maps.Marker({
