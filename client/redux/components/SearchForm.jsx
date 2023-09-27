@@ -5,7 +5,6 @@ import { Grid, TextField, Button, Container } from '@mui/material';
 import { setMap } from '../reducers/mapSlice.js';
 import { loadMap } from '../reducers/mapSlice.js';
 
-// import { response } from '../../../../server/server.js';
 
 const searchForm = (props) => {
     const dispatch = useDispatch();
@@ -30,28 +29,44 @@ const searchForm = (props) => {
             .then(response => {
                 console.log('RESPONSE LOOK HERE', response);
                 const currentMap = googleMapInstance;
+
                 let newLat = response[0].location.lat
                 let newLng = response[0].location.lng
                 let mapPosition = { lat: newLat, lng: newLng }
-                dispatch(setMap({ center: mapPosition, zoom: 12 }));
-                // invoke load map, passing in the lat/long from inputVal
+                dispatch(setMap({ center: mapPosition, zoom: 14 }));
+
+                // Map each response item and add markers
+                //testing
                 response.forEach((el) => {
                     let position = { lat: el.location.lat, lng: el.location.lng }
-                    new google.maps.Marker({
-                        position: position, 
+                    const marker = new google.maps.Marker({
+                        position: position,
                         map: currentMap,
                         title: el.name
-                    })
+                    });
+                    marker.addListener("click", () => {
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: `
+                            <div>
+                                <h3>${el.name}</h3>
+                                <p>Address: ${el.address}</p>
+                                <p>Rating: ${el.rating}</p>
+                            </div>
+                        `,
+                        });
+
+                        infoWindow.open(currentMap, marker);
+                    });
+
                     dispatch(addToResults({
                         name: el.name,
                         address: el.address,
                         rating: el.rating
-                    }))
+                    }));
                 });
-
-            }
-            )
+            });
     }
+
     return (
         <Container>
             <Grid container spacing={1} justifyContent="center" alignItems="center">

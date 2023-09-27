@@ -11,15 +11,15 @@ mapsController.getMap = (req, res, next) => {
     const myURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=tennis+court+in+${zip}&radius=500&key=${key}`
     res.locals.courtList = [];
     let indObject
-  
+
     fetch(myURL)
         .then((response) => {
             if (!response.ok) {
-            throw new Error(`Network response not ok: ${response.status}`)
+                throw new Error(`Network response not ok: ${response.status}`)
             }
             return response.json();
         })
-        .then((data) => {  
+        .then((data) => {
             // console.log('DATA', data)
             for (let i = 0; i < data['results'].length; i++) {
                 indObject = {
@@ -31,13 +31,14 @@ mapsController.getMap = (req, res, next) => {
                 }
                 // console.log('IND OBJ', indObject)
                 res.locals.courtList.push(indObject)
+                // console.log('res.locals', res.locals.courtList);
             };
             return next();
         })
         .catch(error => {
             return next({
                 log: 'Unable to get map',
-                message: {err: `ERROR: mapsController.getMap : ${error}`}
+                message: { err: `ERROR: mapsController.getMap : ${error}` }
             })
         });
 
