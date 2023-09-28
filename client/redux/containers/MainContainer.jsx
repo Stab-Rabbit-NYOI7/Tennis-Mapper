@@ -1,5 +1,6 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
+import { Grid, Container } from '@mui/material';
+import Navbar from '../components/Navbar.jsx'
 import DisplayContainer from './DisplayContainer.jsx';
 import DrawerContainer from './DrawerContainer.jsx';
 import FavoritesContainer from './FavoritesContainer.jsx';
@@ -7,16 +8,17 @@ import FavoritesContainer from './FavoritesContainer.jsx';
 
 const MainContainer = () => {
     return (
-    <Grid container spacing={3} className="app-background">
+        <main className="app-background">
+            <Navbar />
 
-        <DisplayContainer />
+            <Container>
+                
+                <DisplayContainer />
 
-        <DrawerContainer />
-        
-        <FavoritesContainer />
-        
-    </Grid>
-
+                {/* <FavoritesContainer /> */}
+                
+            </Container>
+        </main>
     );
 };
 
