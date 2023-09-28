@@ -36,10 +36,27 @@ loginController.googleLogin = (req, res, next) => {
         .then((result) => {
             if (result) {
                 res.locals.googleUserInfo = result
+                console.log('RESULT IN LOGIN', result)
+                
                 return next()
             } else {
-                console.log('Google Login Error')
-                return next('Google Login Error')
+                const googleUser = new GoogleUser({
+                    _id: sub,
+                    name: name,
+                    email: email,
+                    favorites: [],
+                    isGoogle: true,
+                    picture: picture,
+                });
+                googleUser.save()
+                    .then(() => console.log('Google User Signed Up Succesfully'))
+                    .then(() => res.locals.googleUserInfo = googleUser)
+                    .then(() => {
+                        return next()
+                    })
+                    .catch((err) => {
+                        return next(err)
+                    })
             }
         })
         .catch((err) => {

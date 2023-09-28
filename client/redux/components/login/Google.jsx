@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+import { useDispatch } from 'react-redux';
+import { login } from '../../reducers/authSlice.js'
+
 
 const fetcher = (input, method) => {
   let defaultHeader = {
     method: "POST",
     headers: {
-        "Content-Type": "application/json"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(input)
-    }
-
+  }
+  
   let header = Object.assign({}, defaultHeader, method)
-
+  
   fetch('/api/google', header)
     .then((data) => data.json())
-    .then((data) => console.log(data))
+    .then((data) => {return data})
     .catch((err) => console.error(err))
 }
 
+
 const google = () => {
+
+  const dispatch = useDispatch()
 
     return (
         <GoogleLogin
@@ -35,11 +41,15 @@ const google = () => {
                 sub: sub
               }
               fetcher(newObj, {method: 'POST'});
+              if (sub) {
+                dispatch(login())
+              }
             }}
             onError={() => {
               console.log('Login Failed');
             }}
           />
+
     )
 }
 

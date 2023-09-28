@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const path = require('path')
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
 // Routers
 const mapsRouter = require('./routes/mapsRouter.js')
@@ -13,6 +14,7 @@ app.use(cors());
 // Middleware to parse JSON payloads from incoming requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
 // Serve the static frontend files from the 'client/dist' directory
 app.use('/', express.static(path.resolve(__dirname, '../dist')));
 // Sends all POST requests to /api/find to the router

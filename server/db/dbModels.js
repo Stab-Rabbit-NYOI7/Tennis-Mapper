@@ -41,7 +41,14 @@ const googleUserSchema = new Schema({
 
 const GoogleUser = mongoose.model('googleUser', googleUserSchema);
 
+const sessionSchema = new Schema({
+  cookieId: {type: String, required: true, unique: true}
+})
+
+Session = mongoose.model('session', sessionSchema)
+
 module.exports = {
   User,
-  GoogleUser
+  GoogleUser,
+  Session,
 };
