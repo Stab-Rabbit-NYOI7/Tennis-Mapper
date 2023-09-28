@@ -1,8 +1,8 @@
 import React from 'react';
 import MainContainer from './redux/containers/MainContainer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import Login from 'ADD BROOKES LOGIN PAGE HERE'
-import FakeLogin from './FakeLogin.jsx'
+import Login from './redux/components/login/Login.jsx'
+// import FakeLogin from './FakeLogin.jsx'
 import { useSelector } from "react-redux";
 import LogIn from '/Users/brookesauro/repos/codesmith/projects/tennis-mapper/client/redux/components/login/login.jsx';
 
@@ -10,25 +10,22 @@ import LogIn from '/Users/brookesauro/repos/codesmith/projects/tennis-mapper/cli
 
 
 const App = () => {
-  return (
-    <LogIn />
-  )
-  // let isLoggedIn = true
-  // // const isLoggedIn = useSelector( state => state.isLoggedIn)
-  // console.log('IS LOGGED IN', isLoggedIn)
+  let isLoggedIn = false
+  // const isLoggedIn = useSelector( state => state.isLoggedIn)
+  console.log('IS LOGGED IN', isLoggedIn)
 
-  // return (
-  //   <Router>
-  //     <Routes>
-  //       {isLoggedIn ? (
-  //         <Route path='/' element={<MainContainer />}/>          
-  //       ) : (
-  //         <Route path='/' element={<FakeLogin/>}/>
-  //       )
-  //     }
-  //     </Routes>
-  //   </Router>
-  // );
+  return (
+    <Router>
+      <Routes>
+        {isLoggedIn ? (
+          <Route path='/' element={<MainContainer />}/>          
+        ) : (
+          <Route path='/' element={<Login/>}/>
+        )
+      }
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;

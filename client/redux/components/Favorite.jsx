@@ -12,7 +12,11 @@ import Button from '@mui/material/Button';
 const Favorite = (props) => {
     return (
         <Card id='favoriteContainer' sx={{
-            maxWidth: 400,
+            maxWidth: 250,
+            maxHeight: 250,
+            minHeight: 250,
+            minWidth: 250,
+            overflow: 'auto',
             mb: 2,
             backgroundColor: 'var(--sea-green)',
             p: 2
