@@ -10,12 +10,18 @@ import {
     ListItemButton, 
     ListItemIcon, 
     ListItemText,
-    IconButton
+    IconButton,
+    styled,
 } from '@mui/material';
 import Face5Icon from '@mui/icons-material/Face5';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import LogoutIcon from '@mui/icons-material/Logout';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+
+const StyledButton = styled(Button)(({theme}) => ({
+    // backgroundColor: theme.palette.primary.dark,
+    color: '#283618',
+}));
 
 
 const DrawerContainer = () => {
@@ -38,6 +44,7 @@ const DrawerContainer = () => {
           onKeyDown={toggleDrawer(anchor, false)}
         >
           <List>
+            {/* add string to array to add a list item */}
             {['User'].map((text, index) => (
               <ListItem key={text}>
                   <ListItemIcon>
@@ -49,7 +56,7 @@ const DrawerContainer = () => {
           </List>
           <Divider />
           <List>
-            {['Favorites', 'Luv All'].map((text, index) => (
+            {['Favorites', 'Love All'].map((text, index) => (
             <ListItem key={text} disablePadding>
                 <ListItemButton>
                 <ListItemIcon>
@@ -83,7 +90,7 @@ const DrawerContainer = () => {
       );
     
     return (
-        <Grid item xs={2}>
+        <Grid item xs={6}>
             <Grid
                 container
                 sx={{ 
@@ -91,21 +98,14 @@ const DrawerContainer = () => {
                     alignItems: 'flex-end'
                 }}
             >
-                {/* <h1>HELLO</h1> */}
                 {['right'].map((anchor) => (
                     <React.Fragment key={anchor}>
-                    <Button 
+                    <StyledButton 
                         onClick={toggleDrawer(anchor, true)}
-                        variant='contained'
-                        sx={{
-                            maxHeight: '30px',
-                            minHeight: '30px',
-                            maxHeight: '30px',
-                            maxHeight: '30px',
-                        }}
+                        variant='text'
                     >
                         Menu
-                    </Button>
+                    </StyledButton>
                     <Drawer
                         anchor={anchor}
                         open={state[anchor]}

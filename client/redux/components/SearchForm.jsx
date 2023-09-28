@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToResults, clearResults } from '../reducers/resultsSlice.js';
-import { Grid, TextField, Button, Container } from '@mui/material';
+import { Grid, TextField, Button, Container, styled } from '@mui/material';
 import { setMap } from '../reducers/mapSlice.js';
 import { loadMap } from '../reducers/mapSlice.js';
 
+const StyledButton = styled(Button)(({theme}) => ({
+    backgroundColor: theme.palette.primary,
+    color: '#283618',
+    '&:hover': { backgroundColor: '#7fa879' },
+}));
 
 const searchForm = (props) => {
     const dispatch = useDispatch();
@@ -76,6 +81,7 @@ const searchForm = (props) => {
                         label="Zip Code"
                         variant="outlined"
                         fullWidth
+                        size='small'
                         InputProps={{
                             style: {
                                 backgroundColor: 'white',
@@ -91,15 +97,14 @@ const searchForm = (props) => {
                     />
                 </Grid>
                 <Grid item xs={2} sm={1}>
-                    <Button
+                    <StyledButton
                         variant="contained"
                         color="primary"
                         onClick={onHandleSearch}
                         fullWidth
-                        sx={{ backgroundColor: '#CCFF00', color: '#395E66', padding: '12px 12px' }}
                     >
                         Search
-                    </Button>
+                    </StyledButton>
                 </Grid>
             </Grid>
         </Container>

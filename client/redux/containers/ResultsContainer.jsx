@@ -1,10 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ResultsCard from '../components/ResultsCard.jsx';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container'
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography'
+import { Grid, Container, Paper, Typography } from '@mui/material';
 
 const Results = () => {
 
@@ -20,11 +17,11 @@ const Results = () => {
         <Grid item xs={12}>
             {results.length > 0 && (
                 <Paper elevation={3} >
-                    <Container maxWidth="lg" sx={{ backgroundColor: '#152614', p: 2, }}>
+                    <Container maxWidth="lg" sx={{ backgroundColor: '#C1D7AE', p: 2, }}>
                         <Typography 
                             variant="h4" 
                             component="div" 
-                            sx={{ color: '#DFFD91', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                            sx={{ color: '#283618'}}>
                             Search Results
                         </Typography>
                         <hr></hr>

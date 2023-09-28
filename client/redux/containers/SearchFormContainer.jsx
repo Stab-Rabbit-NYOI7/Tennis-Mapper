@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 
 const SearchFormContainer = () => {
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} sx={{ m:2 }}>
 
       <Grid container justifyContent="center">
 
