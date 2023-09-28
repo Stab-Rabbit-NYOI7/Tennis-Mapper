@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './redux/components/login/Login.jsx'
 import { useSelector } from "react-redux";
 
+
 const App = () => {
-  let isLoggedIn = true;
+  // let isLoggedIn = false
+  const isLoggedIn = useSelector( state => state.authentication.isLoggedIn)
+  console.log('IS LOGGED IN', isLoggedIn)
 
   return (
     <Router>
