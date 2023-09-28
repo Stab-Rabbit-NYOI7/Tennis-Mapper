@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, TextField, Typography, Button, Grid, Paper, Link, Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import Google from './google.jsx'
+import Google from './Google.jsx'
 
 
 const LogIn = () => {

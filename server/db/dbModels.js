@@ -20,10 +20,28 @@ const db = mongoose.connection;
 
 // SCHEMAS
 const userSchema = new Schema({
-  username: {type: String, required: true },
+  username: {type: String, required: true, unique: true},
   password: {type: String, required: true },
+  favorites: {type: Array, required: true},
+  isGoogle: {type: Boolean, required: true},
+  picture: {type: String},
+  // _id: {type: String, unique: true},
 })
 
 const User = mongoose.model('user', userSchema)
 
-module.exports = User;
+const googleUserSchema = new Schema({
+  _id: {type: String, required: true},
+  name: {type: String, required: true},
+  email: {type: String, required: true, unique: true},
+  favorites: {type: Array, required: true},
+  isGoogle: {type: Boolean, required: true},
+  picture: {type: String},
+});
+
+const GoogleUser = mongoose.model('googleUser', googleUserSchema);
+
+module.exports = {
+  User,
+  GoogleUser
+};

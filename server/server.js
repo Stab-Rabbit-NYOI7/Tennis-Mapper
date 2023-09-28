@@ -6,6 +6,7 @@ const path = require('path')
 // Routers
 const mapsRouter = require('./routes/mapsRouter.js')
 const usersRouter = require('./routes/usersRouter.js')
+const googleRouter = require('./routes/googleRouter.js')
 
 // Middleware to allow cross-origin requests
 app.use(cors());
@@ -17,6 +18,7 @@ app.use('/', express.static(path.resolve(__dirname, '../dist')));
 // Sends all POST requests to /api/find to the router
 app.use('/api/find', mapsRouter);
 app.use('/api/users', usersRouter)
+app.use('/api/google', googleRouter)
 
 // Middleware to handle 404 errors for undefined routes
 app.use('*', (req, res) => {
@@ -28,7 +30,7 @@ app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: 'An error occurred' },
+    message: { error: `An error occurred: ${err}` },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
