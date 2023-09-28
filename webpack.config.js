@@ -47,8 +47,7 @@ module.exports = {
                 enforce: 'pre',
                 use: ['source-map-loader'],
               },
-        ]
-    },
+          ]},
     // Resolve .js and .jsx file extensions when importing
     resolve: {
         extensions: ['.js', '.jsx'],

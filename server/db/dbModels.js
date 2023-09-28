@@ -22,19 +22,24 @@ const db = mongoose.connection;
 const userSchema = new Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true },
+  favorites: {type: Array, required: true},
+  isGoogle: {type: Boolean, required: true},
+  picture: {type: String},
   // _id: {type: String, unique: true},
 })
 
 const User = mongoose.model('user', userSchema)
 
 const googleUserSchema = new Schema({
-  email: {type: String, required: true, unique: true},
+  _id: {type: String, required: true},
   name: {type: String, required: true},
-})
+  email: {type: String, required: true, unique: true},
+  favorites: {type: Array, required: true},
+  isGoogle: {type: Boolean, required: true},
+  picture: {type: String},
+});
 
-const GoogleUser = ('googleUser', googleUserSchema)
-
-
+const GoogleUser = mongoose.model('googleUser', googleUserSchema);
 
 module.exports = {
   User,
