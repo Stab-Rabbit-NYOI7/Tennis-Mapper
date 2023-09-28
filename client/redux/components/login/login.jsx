@@ -27,6 +27,8 @@ const LogIn = () => {
                     alignItems: 'center',
                     gap: '20px'
                    }}>
+
+                    <img id='logo' src='https://greennettennis.com/wp-content/uploads/2021/02/Green-Net-Logo-Icon.png'/>
                     
                     <Typography variant='h2' align='center' sx={{my: 2, color: '#254441'}}> Welcome to Tennis Finder!</Typography>
                     <Button variant='contained'>Sign in with username</Button>
