@@ -23,7 +23,7 @@ const FavoritesContainer = () => {
 
     return (
         
-        <Grid item xs={12} md={6}> 
+        <Grid item xs={4}> 
         
             <Grid container spacing={2}>
 
