@@ -9,7 +9,8 @@ import {
     ListItem, 
     ListItemButton, 
     ListItemIcon, 
-    ListItemText 
+    ListItemText,
+    IconButton
 } from '@mui/material';
 import Face5Icon from '@mui/icons-material/Face5';
 import StarRateIcon from '@mui/icons-material/StarRate';
@@ -82,20 +83,39 @@ const DrawerContainer = () => {
       );
     
     return (
-        <Grid container justifyContent='flex-end'>
-            <h1>HELLO</h1>
-            {['right'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)}>Menu</Button>
-                <Drawer
-                    anchor={anchor}
-                    open={state[anchor]}
-                    onClose={toggleDrawer(anchor, false)}
-                >
-                    {list(anchor)}
-                </Drawer>
-                </React.Fragment>
-            ))}
+        <Grid item xs={2}>
+            <Grid
+                container
+                sx={{ 
+                    justifyContent: 'flex-end',
+                    alignItems: 'flex-end'
+                }}
+            >
+                {/* <h1>HELLO</h1> */}
+                {['right'].map((anchor) => (
+                    <React.Fragment key={anchor}>
+                    <Button 
+                        onClick={toggleDrawer(anchor, true)}
+                        variant='contained'
+                        sx={{
+                            maxHeight: '30px',
+                            minHeight: '30px',
+                            maxHeight: '30px',
+                            maxHeight: '30px',
+                        }}
+                    >
+                        Menu
+                    </Button>
+                    <Drawer
+                        anchor={anchor}
+                        open={state[anchor]}
+                        onClose={toggleDrawer(anchor, false)}
+                    >
+                        {list(anchor)}
+                    </Drawer>
+                    </React.Fragment>
+                ))}
+            </Grid>
         </Grid>
     )
 }

@@ -9,10 +9,11 @@ const MainContainer = () => {
     return (
     <Grid container spacing={3} className="app-background">
         <DisplayContainer />
-
-        <DrawerContainer />
         
         <FavoritesContainer />
+        
+        <DrawerContainer />
+
         
     </Grid>
 
